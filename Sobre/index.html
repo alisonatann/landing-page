@@ -1,0 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio & Links - Alison Natan</title>
+
+     <link rel="icon" type="image/jpeg" href="img/iconAN.jpg">
+    <link rel="stylesheet" href="index.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+   
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+     
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between p-4 sm:p-8 selection:bg-neonCyan selection:text-slate-950">
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 glass-card px-5 py-3 rounded-xl border border-neonCyan/40 text-neonCyan font-medium text-sm shadow-neon flex items-center space-x-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Link copiado!</span>
+    </div>
+
+    <!-- Main Container -->
+    <main class="w-full max-w-3xl mx-auto space-y-8 my-auto py-6">
+        
+        <!-- Profile Header -->
+        <div class="text-center space-y-4">
+            <div class="relative w-32 h-32 mx-auto">
+                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 blur-xl opacity-70"></div>
+                <!-- Avatar with Logo -->
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAGQAZADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD5VFOpop1akiilpBSigBaKKWkMBQRQKWmIFFOApFoJ5oAXvTqaKWgYUUUUCFpaSloAKUUlLQAUUUuKAAUvWkFLQAuKKKM0hhS0lFMBeaU9KQUtAgANLSCloABS0CigAoFGKUUAHelUGjvSg8UDFxSjpTc07tQAnNKKTNKKBC0ppKXNIYAUopO1GaADml7UgpQaYhDQKWjNAAaQdKWkNAGNS9qaOlLQMUUo60gpRQIWiiigBR0pRSCnUAFFJ3pRQAopaQUtAwooooEKKWkFLQAUtJRQAtFIKWgBRRmgUUALmjFFFADhRSLS0AFKBxSUuaAClpBS0ALRSUtABmlFJRQA7ilFNzS5oAUDvS0UCgYtFITSZoELThTQc0ZoAdSim0ooAWgCijNAC0UlAoAWkNLSUAYopwpBRQA4UCkFKOtACmgc0UCgBaWkFLSGFLSUCmIUUtAo6UAFOFNzS0DDNKKSloELRRRQAUUUCgYopQaSgUgFpaQUUAKKdTKcKAFooPSimAopcUgpc0CDFLSDrTqAEopaKBhRRRQIcDRSCloGBpMUpoBpAKBgUUZoFMQtL0oFIaQxaKQGigBQaXNNpaYCig0lFAjHFLigUtACUtFKKACiijNACilptLSGLRRRTEOWlNItKKQxMUtAPNKaYhBS0CjNABRigU40AJRRRQAUUUooGFFBooELThTRS5xQMf2pO9ANFAhQaUikpc0gCijNLTABS0ZozSAQiilpM0wFFKKTNKKAFNJR3pSaAClFAozQAUopKUUhhS0hNKKYCZ5oFB60tIApBR3pc0wMgUvamiloELiijNFAC0nelooAWjNJS0DFFBpBS0CClyaSgigYuadmmDrT6BBk0CigGgY4cUUlAoELRRRQMKXtSUE0CFzRSUCgBaUc0nelFAxRThTRRQIdSimilzQMWjNANFAhRS0gpaBhRikzS0AFLSUooAKWkpaAAGjNJRQIdmlGaaKXdQMD1pQeKbnmnAZoAM0tN70p6UAKaKaDzSmgRkilPSkFKaAAUtNpwoAKOaKBQAtFFLSAKBSUopgKKd1pmaUUgF4pc03vThTAWjvRmikAUUUUwF7UUUZpALRRQKYBRRS0AApQKQcUuaAFopM0ooAKWg0lIB1LTe1ANMY4U6mUZpCHUtNzThQAtAozxSA0ALQKKSmA8YxSGkzxQKACloHSjNIAFOFNFLnimAnenE8U2jNIAHWnGkBoY0wMnNLTaUUAKKWkpaAA0tJS0AKKKSigYtFJS5oELS02lFAwFOBpDSZ5oEOzQKQUtAx2aTNIOTTsUCCiiigYopaQUtABilqWGMucAU54Spwavkdrk8yvYhoqTbjtSbaXKO4ztR0pxGKaakBaKSjNAx2aSikxQIdzQKQUvegYopQabmlzQA49KBSA0A0ALSikzSigBaKSigQoopB1paBhRRRQIDQKKKAFpDQaSgDLzSikpRQAtFFLkYoAM0UCigBaBRmikAUUUCmAtLmm0tIANLikHvTqYAaBSZoFIBacKbSimAvSlzTc5pc0DHDFKDUeafbxS3NxHbwLukkYKo9zWlODk7IiUkldnR+FoIvKlvZ41dFOxFbozd/wA/mKvyPaZJOn2jf8BP8AjVOR47aKO0hOY4V2g/3j3b8TzTBITX0NSMKVNUrarf1PKi5Tm533LmbM/wDMNs/++D/jUsa2B5Ol2R/4C3/xVUlapUfFcThF9Dfml3G67YW09mbiytkglhG54484dO5GSeR/LPpzzJrsIJ2R1dThlORWFr9kltcCa3XbbTZKD+43dPw7exHvXFiaVveWx00al9GZVLQaSuQ3HUmaSjNADqQGjtSUgHUCkzS0wHZFFNopAOFPHSmAijNADgaKQUvFMBc0ZpAaWkAZozRRTAXNJSUooAU0lKTTTQBlinU2nUAFLTaKAHUopKDQAtLSCg9aBi0UlAoELmiiigYZpaQUZoELS5pKKQxwNLTc0ZpiHdBmkzSZppOKaQNgzYFbPhxRb28uoSD53zHB7D+Jv/ZfzrIsrd728jtkO0ueWPRVHJP4DJrZvZI94ihG2KMBEX0A6f4/WvWy+nyXrPpt6/8AAOHFS5v3a67+g9n3NmnI1VkanhqupPmdyYxsi4r1Ir4FZ7Txxsgdwpdtqg9z6VYV81CY7FtZD61IRHPC9tOcRyfxY+4w6MPp/ImqatUqvTaUlZivZ3Rh3MMlvO8Ey7ZEOCP8PaojW3qkH2q285B++gXn/aQf1H8vpWIa8urTcJWO6E1JXEoopKzKHUA0lAoGLSimk0oNAhc0uc02ikMdSim5paYCg04GmUZoAeKcMUwUooAcabRmigQoooFFAxTTTSk000CMwdaXNIKWgBRS00Ud6AHUUlFAxRmlzSdqKQhaUUlFMB1FJmikAtAoopgKDRmkoFAC0UUhoACeKjdqcxp+nW32y+SFiVj+9Kw/hQdT/Qe5FbUoOclFdSJyUU2zS0uL7HpxuW4muhhPaPP9SPyHvUe4ls96k1C486YlQFQcKo6KBwB+VV1NevVaglTjsjggnJuct2WEPenZqEGoNSuTb2p2H94/yr7e9cspJK7NlG7sY3iC8NxfBY2OyHhSD1Pc/wCfSt3Rb8XlqGY/vU4cf1/GuWePAp+m3TWV2soyV6OPUVxU6rU7vqdEqd42R3KuDUitVOGRXRXQ5VhkH1FTq9eimcrRailKOHU4IORWbq1ssMolhGIJclR/dPdfw/kRVoNUi7JYnt5ThH/i/uN2b/PYms61P2kfMqnLlZhGgU+eN4ZWikXa6HBFR15h2DqTvSUUALSikFAoAdRSUUAOFFJRQA7NFNpQaAHgUdKBSGkMcDS5FMBopiJKQdaaKWgANI1LSE0AZdKKSigB1FJmgdaBjs0UlFAhwoNIDS0hhmjNFFMQd6Wig0hi5oNJRTELmiiikMWkNIDSMcCrSENc1sQxfYNMUEYnugJH9VT+Ffx+9+VUNHt0ub3M4P2aEeZN7gdF/E4H41Yv7l7m5eVzyxzx0H0r1MJBU4Oq99l+rOKvLnkoLbr+hETk09aiBp6mocrlJWJVPNZN6/2i5JHKLwv+NXbuXZFsH3n4/DvVRUAFcled/dNqUepVlTjpVGZMGtWRc1TnTiuc2Lvh2+2n7HIeDzGf6Vvq9cQSUcMpIIOQfSun0y7F1bCQ/fHDj3rsw9S65Wc9WHVGorVIGqor1Ir11XMCS+i+0weaozLCvzf7SDv9R/L6VlmtWOVkkV1OCOlUdQhWKQPGMRScqP7p7j8P5YrjxFOz5kdFKd9GV80UlGa5TcWim7q1fCGkN4j8T2OhRXMdtLds4WV1LKu1GYkgc/w4/GgDNoFept8FdTU4PiLTf+/Mn+FPi+CmoP18SacP+2ElArnlVLXU/EPwXceDbmyhn1G3vhdxtIrQoy7dpwQd1cvQMSilooEKKU0gNBoGFFAFAoEKKUGkxSigBaaaUkU00AZgozSUtAC0UgpaAFoFJSigBaXNNzS0DFzRTacDQAuaXNNopAKKWkpaYgzSGg0ChIBaidu1Oc1f8P26tcSX86hrezAdgejufuL+J5PsDXXhqDrTUUZVaipxcmWLmIafp0dn0nkxLceoJHyr+AP5k+lZ2c0+9uHubh5pGLO7FiT3JqIGu/FTjzcsNlojlpRaV5bskBpwOOTUYPFQ3cmEEYPLdfpXFKXKrm6V3YZLKHkMh6dB9K1vCMq3EV2XhicK6hd8YbHB9RWBcNhMVveAF3Wt7/10X+RrkjrLU3eiN5WQDb9ksiPRrSM/zWmyWGj3Y23elxJn/lpasYnH4cqf++anMfzdKeiVpyom5x3ifwxPp0RvbRzeaeSB5wTa0ZPRZF52n0OSD2PasC0uprSXdGfqp6GvXrKRoSdu0hlKurKCrqeqsDwQfQ1yvi/waBBJquhxs0CgvcWgJZ4B3Ze7J+q98jmoacdUO6ejMyyvYrpNyHDD7ynqKuI9cbG8kMgdGKsOhFbum6ik+EfCy+nY/SumnWvozGdO2qNpXp2FlRoZDhW6H+6ex/z2qqrcVIrVu7SVmZq6d0U5FaN2RxhlOCKYTV28TzY/MH30GG919fw/z0rPY1584ODsdcZcyuNkfAroPg1M3/C2NGbPC+d/6JeuZmPFbvwfbb8TtKb/AK6/+inqBn1CJ93epEmA71ircYPBqRbg5HNXyknnX7RDl73Qj6W8w/8AHxXlVem/Ht99xoZ9IZv/AENa8yqGUgopKWgBaO9FFAxc0ZpKKBDs0E8UlFAwooooEZdLSCloABRQKKQxaUUlFAhTSUtFMAoBooApDFpaSloAKWkzS0xAaQnAoprmririYmGdwqgkk4AHeuh8QRJpdpBo0ZBki+e6I7zEcj/gIwv1B9aq+GI1tnl1qdcpaYEIPRpj938uW/AetZ93O88zSuxZmOST3r3sPGOGwzm/ilt6HnVW6tVRWy/MjpQaZmlBrzW7s6EPLAAk9B1qnkyOZD36VJctwIx1PJ+lIBha5a0ruxvTXUq3PSun+HC7rS+PpIn8jXM3Fdb8MUzZX5/6ap/I0Uo3kObsjoilATFWGXB6UhHFatEXI04NXLSd4pFkjdkdTlWU4INU24oVuagZm+LvCMOs7r7RYEh1A8yWiDalwfWMdFf/AGOh7YPB8xkR4ZCrhkdTggjBBH8jXtMMmKpeKfD1p4kia4DJbasBxM3CXHtJ6N6P+fqM5R7FJnnOmanuxFcNhuiue/1rXR65jUbK5sLyW0u4Xhniba8bjBU1Y03UWhxFMS0fY91/+tWtOtbSRE6d9UdIrYORVK8iEb5X7jcj29qmSRWUMpyD0I7058SRmNj16H0Na1Y88SIS5WZM54rY+FjbPiJprehk/wDRbVj3IIJUjBHUVp/DY7fHent6F/8A0Bq41udD2PoET5PWpEn96x/P96ek59a1IOT+Nb75dGOekU3/AKEted13HxaffLpPtHL/AOhLXDZrKW5a2HCikzRSAU0UCjNIApaSlFMAoozikzQAtBpKCaAMylpBS0AApaSloAUUUlAoAWiiigApwptKDQAtFJ2qQwzrH5rQyiM/xlDt/OiwxlKDSZpuaBDmNMUNJKsaAszMAAOpJpGaoHmaJhIjFWU5UjqDW1NpSTZMr20Oj8Qyx28UGk2zBo7QEOy9HlP32/PgeyisMtWVLM7HkmoSST1rsxeO9tK6VkYUcPyK1zb3Uu4AEk8CsPmrdpFzuNcftvI19n5lyPLsXbqakPShBTsVktWabFS4HFdp8L4/+JXftj/luo/8dNchMtegfDKDHhm8lx1uwP8AxwV6WCoc8n6HJianLE1JBg1ETU8/U1WNZ1Y2ZdOV0cVquuXGkeLLteZbZiheIn/YXkehrqLG8t722W4tZA8bd+4PofQ1wvjdCfEd0fUJ/wCgCqOj6ldaXc+dbtlT9+NvuuPf/GuXVM26HqaPirEMme9Yuj6nbapb+dbthh9+M/eQ/wCHvWjG2DTESa3pNhr1oLe+/dzIMQXSrl4vY/3k9u3b0Pl3iPQdQ0K/Npfw7SRujkQ7o5V/vI3cfy6HB4r1dH6U++itdS05tP1CLz7ZjuAzho2/vIezfoehzUyjcaZ43Y3slq2OWjPVf8K3be4jmjDxsCD+lVvFPhu60WYNn7RZyMRDcKuA3+yw/hb2/EZHNY9tLJbybkP1HY04VHHRilBM3L5N67wPmA+b3FWfh2P+K0tD6Bz/AOOms6O7V1z901p+AQo8ZW205GxyP++TTaTldAr2sz13zPenLL71T30b6AOa+Jr75dN9o5P/AEIVx9dT8Q2y+n/7kn8xXK5rKW5a2F7UCkopALS0gooGLmlzTaKBC0CigUDA0Gg0hoEZ4pDRRSAKUUlKDQAtFFFMAzS0gozSAU0hOKQmo5G4pgSwM0k4jjGX7D3pmnaxex3w2SsoJwRnqPQg9R7Gs/z5ILkSIeRVy41Q3Lb/ALPGJSPmcIAT7kjrXVSmlHe36mU4tvY1Zf7LlnZ0mmgVudgjDBT3AJYcZ6Uot9KPXULr8Ldf/i65pkcsWPJPJpCrUKrS6w/FhyS/mOikt9Lx8t/dH626j/2eqVxb2n8FzI31jA/9mrI2sTgAk+wo8mb/AJ5Sf98mk60HtD8xqEv5i09tHniX9P8A69N+yp/z1H5VX8ib/nlJ/wB8mjyZf+eUn/fJrJyX8pVn3LaWsYPMw/L/AOvVqKOJR/rf0H+NZYgnP/LGT/vg08W1yf8Al3mP/ADRePYLPua6iH/nqfyH+NSqsJ/5an8h/jWMtrdf8+03/fs1IttcjrbzD/gBq4uPYlp9zVaGI/8ALXP4f/Xr0j4fwCPwNcSLyP7QIz/2zWvJljlH3o3H1WvXfhxgfDG4J6/2qf8A0Ute7llm5adDzMfdQTv1X5jbk8mqjnmprpvmNU2f3rgxC946qL0OJ8Yru1+4P+yn/oArAkTHSui8UDdrU59k/wDQRWNIma8+T1OtbEFldXFlcrcWshjkX9R6H1Fd/oGuW+qRBeIrpR88eevuvqP5V59IhByKSGR4pVkjdkkU5VgcEGkncD1cTYqVJ65XQNeS9C292RHc9Fbosn+BrdDEVQjVSaN4ZIJ4o54Jl2yxSDKuPf8AoRyOorhPFvhb7BvvtMMk9hn5g3MkGezY6j0b88GuqST3q5bTMjh1OD06Agg9QQeCD6HrSauM8kTchwa3fAL7fF1sfVX/APQTW74p8NQSRtf6PFtwC01oOdvq0fcr6r1HbI6c/wCCl2+LLXB/hf8A9BNJaMGepGTnrQJM96qM9Kr81QjC8enL2H+4/wDMVzNdH44bL2P+4/8AMVzmayluWtgpabQKQDqM02ikA4GikoBpgOFGaSigBc0lFBoAz6KQUtIAoFFFMBaBSUUgFozSUjNgUxi9Tip4re0mPlfbRHMRxvTCZ9CQcj64rPS4X7UqN92h7KWK6EgkRos5DhhyPp1Fb04Jq9r/AKGcpO+9hLm1dJnikQq6HDA9jToYMduamGtSRtgZcDjJVTwOB1FSr4hlXpGP++E/wrRUqPWf4Euc/wCUh8r2pv2d2OFX8T0FWG8QzE/d/wDHF/wqtc6rLOuADn3AwPypShRX2r/IE5voLJLFaJhDmQjqOp/wFVTfTeg/WoxGSSzEkmpYrUyfMTtX1rP2kpO0dCuVLVifbpvRf1o+3zei/rTza23/AD2b8xQLa1/57N+Yp/ve4e52GrqE4PGPzNSLqlyOh/U/40n2a0/57v8AmKUW1p/z2f8AMU17XuL3OxINVuv736n/ABpw1O5PVv1P+NMW3s/+ez/mKcLezHSZ/wBK0j7TuS+TsL9umbr/ADNen+ALgn4cXAJ5Oqn/ANFLXl/kwD7sp/HFeheCJAngWaINn/iZMf8AyEterl8pKTv2ZxYyKcLLuixcycmqjPz1pZn5NV2bnrXFXd2b0lZHO+IhnVpT6hf/AEEVlutauujOpSfRf/QRWey15snqdcSnIlV5I6vutQOtSMpqSDXT6F4gOFtr9yR0SY9vZv8AGudkSoslTitYy6Mlo9ORunNTRviuH0HXHs9tvcZkt+3qn09vauvt5kliWWJw6MMqwPBqmrCNKOTBBBIIOQQeRVafTbFtWh1eBRBdJuEqqPklBBGcfwtz9D7HqxZMGpVkpAWC5pweq5egNmgDK8ZNuaz/ANx/5isCtrxactaf7j/zFYeayluWh2aSkFLUgGaWkooGLmikopgOBozTRRQIdSZpM0hoAp0UCikAUUUUAFFFFAAailPFSE1GwzQBnTKd5NPQTONrOxX0zVpos9qfGgHamm0BW+z1PbaXc3K7oLd5B7DrSyOFZRnqcVFfS3McwwSq4BXjgitIRjbmlsTJvZDXtGRyjqVYHBBGCKcsQWtT7TbTRRNfiQzBcbhIASOwOQc4pktzp8Q3wKxcdC7hsfQADmtnhrdVYhVfIgS3SNPMuDjjIX/H0qndXLTfJHxH/OllkkuXy2QvYU5IsDpWU5pLlgXGLerKhSk2+1XfL9qPK9qyLKW0+lG0+lXfLpPLHpQIqhTT1BqwI/al2Yqk7CZBXceCrgDw1NFnn7YT/wCOLXEzcCui8ISH+zJlHQT5/wDHRXdhK3LJ+hz1oc0TelfPeoi1Rs+T1oBqakrscFYyNYOdQk+i/wDoIqkRVvVT/p8n/Af/AEEVUriludC2GMKidamamkUgKrrUEiZq4y1E60AUuVNaWi6tNYSYHzwsfmjJ/UehqnJHmoGBU1pCdtGJo9Fs7uG7gE0D7lPX1B9DVpWrzzTL+aynEsLY7Mp6MPQ12Wmanb38W6FtrgfPGTyv+I96tpdCTTDZp6NVZGzUitSAzfFRy1r/ALjfzFYta3iVsvbf7rfzFZFZS3LQ7ikzSZozUgLRmkzRQAtJmgmgUALQelJmlHSgBKXtSUUwKYpaKKQBRRRQAUUUUANpcUClpjEwKa3Apxpjc0CKN0SWqZNQm8kRMocLyM9j/SiSPdSJDg9KqNSUNmJxT3IZfMlbc/X+VPih55qwI6kRKltvVjWg2OMAVIFpwFLigYzbRtp9FAhm2jbT8UUDGbaa3AqU1G44oAqz9DU+l6q2nwSRrCJN7Z5bGOKilXOaqvGc1UZuOxLSZsf8JJL/AM+if99mnx+I5mYKLSPn/bNYYiJNW7SHDAmjnl3HZGncTG4mMzKFLY4H0xTKQdKWpAKaRTqKBkZFRstTmmkUCKrJUMiZq4y1E60DKDIQaIpZIpBJG7I6nIZTgirLpUTRU7gatt4nvolCyxQTf7RBU/pxVhPFNw7ACyi/77Nc/wCVzVq0iwwNHMxG7fXzXoiZo1jKAjAOetV6YnQU6kxi0UUUhBRmiimMKTNBopCFFKKSloGBNGaQ0UxFU0Cm04UgCiiigAooooAKWkooAQ00in0mKYxm2lC04CloATbTgKKKQhaTvRS0DEopaSgQtFFITTGBpjU40hFAiFhUZWrBFJtoGRKlWIlxSBakUUgHClpBS0xB+VFFFAwptOpDQIYaYwqXFIRSGVytNKVY20mygCAR81PCmKUJUiimBIOlLmkFFIQUuaSigBe9BNJS96AEp1NpaAFopKKBi0lBooEVKUUlFMB1FJS0gCilpKACiiloGJRRRTEFFFFIBRRQKKAA0UGigYUtJQKBC0006kNACUUuKMUDExRilooEAFOoFLQMBS0gpaBBRQKWgBKKKDQMSkpRRQISjFKKUCgYgFPAoFLQAUUUUAFFFFAgpaSloGBoFFJQIXNJRS0ABpCaKQ0AVqKAaKAFpabSigBaKM0UDCikpaACiiigQUdqKKBgKWkooELSUvWigYUtIKKBB3paKSgYtFFFABQaKKAFzRTaUUALSikooEOzRSL1pTxQMDQaQmjNACUopcUUAFFApaAAU6m0tAC0UmaKAFopM0UALRRRQAUUUUhBRRRmmMKaTS5pDQIrUUUUwFopBS0gFoooFABSikozQAtFIDS0gCiiigBaSiimAUtFGaAFopM0UgCgUtJQAd6BR3pRTABQaDRQAlLiiloAKKSjvQAtKaSigBccUUoPFIQaBi0dqQUtAgooooAdRSZopALRRRTAKDQaBQAClpO9FAAaKSloABS0lJSAXikNFIaYysKWkFKaBAKWmilFAxTQKSigBaKTNLQAUtJRQIUUtNzSigYtFFJQAtFFFIAooooEOpKM0UDCikpaYC0UlLSAKKKKYBRRRSEKKUU0daWmMXvQTkUlFABS5pKBQA4UUEYxiigApSabmlNACg0UlFADqTocUDrQetAC96KKQmgBaKSigBRRRSUAFNNKTSGkIrClXrzTR1paYDj14opBS0AFFFFABSikooAWiig0AFKKSjNAC0UlLQAUtFFIAooooAKKKBQAUopKUUwCjvRRSAKWm0tAC0UUUAFHeiigBaKTNKKACiikzQAoJp1NBopgL3o70lGeaQC5paQUtMBaSiigBwFBFJmjNABQKAaXNACY5pDS5oNADDR2pe1JSAqLT6YvWnimAU6m0UAOpKTNFIB1FJmgGmA4UlGaUUAFFGaM0AFFBozQAtFJRSAdRSZozQAtFJmjNAC0UmaKAFpaaDS0ALR0pKKAHUU3NKDQAtFBopgFFFFIBaDSUUAFAoopjFpKUUUgFFLTKXPNMB1FAoNAgopM0ZoGLRSZozQAvegmm5ozmgAoooPSkI//2Q==" alt="Alison Natan Avatar" class="relative w-full h-full rounded-full object-cover border-2 border-cyan-400 avatar-glow shadow-neon bg-slate-900" onerror="this.src='https://placehold.co/128x128/0f172a/00f0ff?text=AN'">
+            </div>
+
+            <div class="space-y-1">
+                <h1 class="text-3xl font-extrabold tracking-tight text-white">Alison Natan</h1>
+                <p class="text-sm font-medium text-cyan-400 tracking-wide uppercase">AN DevTechnology</p>
+                <p class="text-sm text-slate-300 pt-1">
+                    Formado na 
+                    <a href="https://fateccatanduva.cps.sp.gov.br/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline font-semibold inline-flex items-center space-x-1">
+                        <span>FATEC Catanduva</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Social Links & Contacts -->
+        <div class="space-y-3">
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-1">Conecte-se & Contato</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                
+                <!-- 1. Instagram -->
+                <a href="https://www.instagram.com/alisonatann?utm_source=qr&rpxt=cDdpYXd6YWg0OGEz" target="_blank" rel="noopener noreferrer" class="link-btn flex items-center justify-between p-3.5 rounded-xl group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-pink-500/20 text-pink-400 flex items-center justify-center text-lg">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-white block text-sm">Instagram</span>
+                            <span class="text-xs text-slate-400">@alisonatann</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                </a>
+
+                <!-- 2. LinkedIn -->
+                <a href="https://www.linkedin.com/in/alison-natan-233878363" target="_blank" rel="noopener noreferrer" class="link-btn flex items-center justify-between p-3.5 rounded-xl group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-lg">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-white block text-sm">LinkedIn</span>
+                            <span class="text-xs text-slate-400">Perfil Profissional</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                </a>
+ 
+                <!-- 3. GitHub -->
+                <a href="https://github.com/alisonatann" target="_blank" rel="noopener noreferrer" class="link-btn flex items-center justify-between p-3.5 rounded-xl group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center text-lg">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-white block text-sm">GitHub</span>
+                            <span class="text-xs text-slate-400">Repositórios & Código</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                </a>
+
+                <!-- 4. Hostinger -->
+                <a href="https://www.hostinger.com/br?REFERRALCODE=XIDALISON23U" target="_blank" rel="noopener noreferrer" class="link-btn flex items-center justify-between p-3.5 rounded-xl group">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-white block text-sm">Hostinger</span>
+                            <span class="text-xs text-slate-400">Hospedagem</span>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-chevron-right text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+                </a>
+                
+            </div>
+
+            <!-- FATEC Catanduva (Full Width Card) -->
+            <a href="https://fateccatanduva.cps.sp.gov.br/" target="_blank" rel="noopener noreferrer" class="link-btn flex items-center justify-between p-3.5 rounded-xl group w-full mt-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="font-semibold text-white block text-sm">FATEC Catanduva</span>
+                        <span class="text-xs text-slate-400">Instituição de Ensino Superior - GRATUITO</span>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-cyan-400 transition-colors"></i>
+            </a>
+        </div>
+
+        <!-- Services & Technologies Grid -->
+        <div class="space-y-3">
+            <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest px-1">Serviços & Tecnologias</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                
+                <!-- Web Development (Detailed Services) -->
+                <div class="glass-card rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Desenvolvimento Web</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Criação de soluções web profissionais e adaptadas para cada necessidade:</p>
+                        
+                        <ul class="space-y-2 text-xs text-slate-300">
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span><strong>Landing Page:</strong> Página focada em conversão e captação de clientes.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span><strong>Site One-Page:</strong> Site completo com menus e seções em rolagem vertical.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span><strong>Hotsite:</strong> Mini-site temporário para campanhas ou eventos específicos.</span>
+                            </li>
+                            <li class="flex items-start space-x-2">
+                                <i class="fa-solid fa-check text-cyan-400 mt-0.5"></i>
+                                <span><strong>Loja Virtual (E-commerce):</strong> Catálogo, carrinho, pagamentos e clientes.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-cyan-300">HTML</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-cyan-300">CSS</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-cyan-300">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Backend & Storage -->
+                <div class="glass-card rounded-2xl p-5 space-y-4 flex flex-col justify-between">
+                    <div class="space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-lg">
+                            <i class="fa-solid fa-server"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-base">Back-end & Armazenamento</h3>
+                        <p class="text-xs text-slate-300 leading-relaxed">Desenvolvimento de lógica de servidores, manipulação de dados e persistência segura em nuvem e local.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-blue-300">Python</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-blue-300">JavaScript</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-purple-300">LocalStorage</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-emerald-300">Supabase</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900/80 border border-slate-700/60 text-[11px] font-medium text-emerald-300">Firebase</span>
+                    </div>
+                </div>
+
+                <!-- Android Development -->
+                <div class="glass-card rounded-2xl p-5 space-y-3 flex flex-col justify-between md:col-span-2">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div class="space-y-2">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                            </div>
+                            <h3 class="font-bold text-white text-base">Desenvolvimento Android</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed">Aplicativos nativos modernos para Android construídos com as práticas mais recentes do mercado.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 sm:justify-end">
+                            <span class="px-3 py-1.5 rounded-md bg-slate-900/80 border border-slate-700/60 text-xs font-semibold text-emerald-300 inline-flex items-center space-x-1.5">
+                                <i class="fa-brands fa-android"></i>
+                                <span>Jetpack Compose</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full text-center text-xs text-slate-400 py-6 mt-8 space-y-2">
+        <p class="text-cyan-400 font-medium tracking-wide">Projetos desenvolvido em Breve</p>
+        <p>&copy; 2026 Desenvolvido por <strong>AN DevTechnology</strong>.</p>
+    </footer>
+
+    <script>
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('toast');
+                const toastMessage = document.getElementById('toast-message');
+                toastMessage.textContent = 'E-mail copiado com sucesso!';
+                toast.classList.remove('translate-y-24', 'opacity-0');
+                toast.classList.add('translate-y-0', 'opacity-100');
+                setTimeout(() => {
+                    toast.classList.remove('translate-y-0', 'opacity-100');
+                    toast.classList.add('translate-y-24', 'opacity-0');
+                }, 3000);
+            });
+        }
+    </script>
+</body>
+</html>
